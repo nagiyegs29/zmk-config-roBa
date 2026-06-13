@@ -19,7 +19,6 @@
     //         <&kp LEFT_ARROW>,
     //         <&kp UP_ARROW>,
     //         <&kp DOWN_ARROW>;
-
     //     tick = <10>;
     //     wait-ms = <5>;
     //     tap-ms = <5>;
@@ -81,10 +80,10 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E               &kp R   &kp T                                                                &kp Y        &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S         &lt_to_layer_0 3 D  &kp F   &kp G            &kp LS(LG(S))           &trans                      &kp H        &kp J  &kp K      &kp L    &kp ENTER
-&mt LEFT_SHIFT Z  &kp X         &kp C               &kp V   &kp B            &trans                  &lt_to_layer_0 6 LC(SPACE)  &kp N        &kp M  &kp COMMA  &kp DOT  &kp BACKSPACE
-&kp LS(LCTRL)     &kp LEFT_ALT  &kp LEFT_WIN        &trans  &mt LCTRL SPACE  &mt LEFT_SHIFT TAB      &lt 2 BACKSPACE             &lt 1 ENTER                             &kp DEL
+&kp Q             &kp W         &kp E               &kp R          &kp T                                                                &kp Y        &kp U  &lt 5 I    &kp O    &kp P
+&kp A             &kp S         &lt_to_layer_0 3 D  &kp F          &kp G            &kp LS(LG(S))           &trans                      &kp H        &kp J  &kp K      &kp L    &kp ENTER
+&mt LEFT_SHIFT Z  &kp X         &kp C               &kp V          &kp B            &trans                  &lt_to_layer_0 6 LC(SPACE)  &kp N        &kp M  &kp COMMA  &kp DOT  &kp BACKSPACE
+&kp LS(LCTRL)     &kp LEFT_ALT  &kp LEFT_WIN        &kp LC(SPACE)  &mt LCTRL SPACE  &mt LEFT_SHIFT TAB      &lt 2 BACKSPACE             &lt 1 ENTER                             &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
