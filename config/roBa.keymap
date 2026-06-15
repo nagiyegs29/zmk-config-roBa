@@ -1,6 +1,8 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 80
 #include <dt-bindings/zmk/pointing.h>
 
 &mt {
@@ -10,7 +12,7 @@
 
 &trackball {
     automouse-layer = <4>;
-    scroll-layers = <3>;
+    scroll-layers = <5>;
 
     // arrows {
     //     layers = <3>;
@@ -66,9 +68,11 @@
 
     behaviors {
         encoder_scroll: encoder_scroll {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&msc>, <&msc>;
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "ENCODER_SCROLL";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+            tap-ms = <20>;
         };
 
         lt_to_layer_0: lt_to_layer_0 {
@@ -92,7 +96,7 @@
 &kp LS(LCTRL)     &kp LEFT_ALT  &kp LEFT_WIN        &kp LC(SPACE)  &mt LCTRL SPACE  &mt LEFT_SHIFT TAB      &lt 2 BACKSPACE             &lt 1 ENTER                             &kp DEL
             >;
 
-            sensor-bindings = <&encoder_scroll SCRL_UP SCRL_DOWN>;
+            sensor-bindings = <&encoder_scroll>;
         };
 
         FUNCTION {
@@ -102,6 +106,8 @@
 &trans           &trans       &trans    &kp PLUS    &kp MINUS       &kp TILDE      &kp GRAVE  &kp SQT            &kp SEMICOLON  &trans        &kp LEFT_BRACKET      &kp RIGHT_BRACKET
 &trans           &trans       &trans    &trans      &trans          &trans         &trans     &trans                                                                &trans
             >;
+
+            sensor-bindings = <&encoder_scroll>;
         };
 
         NUM {
@@ -111,6 +117,8 @@
 &trans        &trans        &trans        &trans        &trans  &trans      &trans          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp BACKSLASH
 &trans        &trans        &trans        &trans        &trans  &trans      &trans          &trans                                                                &kp PIPE
             >;
+
+            sensor-bindings = <&encoder_scroll>;
         };
 
         ARROW {
@@ -121,7 +129,7 @@
 &trans      &trans  &trans  &trans  &kp LEFT_SHIFT  &kp LS(TAB)        &trans  &trans                                                   &trans
             >;
 
-            sensor-bindings = <&encoder_scroll SCRL_UP SCRL_DOWN>;
+            sensor-bindings = <&encoder_scroll>;
         };
 
         MOUSE {
@@ -131,6 +139,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                &trans
             >;
+
+            sensor-bindings = <&encoder_scroll>;
         };
 
         SCROLL {
@@ -140,6 +150,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
             >;
+
+            sensor-bindings = <&encoder_scroll>;
         };
 
         layer_6 {
@@ -149,6 +161,8 @@
 &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans      &bootloader  &trans        &trans        &trans        &trans        &bt BT_CLR
 &trans  &trans        &trans        &trans        &trans  &trans      &trans       &trans                                                  &bt BT_CLR_ALL
             >;
+
+            sensor-bindings = <&encoder_scroll>;
         };
     };
 };
