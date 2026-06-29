@@ -1,8 +1,8 @@
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 80
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 80
 #include <dt-bindings/zmk/pointing.h>
 
 &mt {
@@ -72,6 +72,7 @@
             label = "ENCODER_SCROLL";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+
             tap-ms = <20>;
         };
 
@@ -90,8 +91,8 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E               &kp R          &kp T                                                                &kp Y        &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S         &lt_to_layer_0 3 D  &kp F          &kp G            &kp LS(LG(S))           &trans                      &kp H        &kp J  &kp K      &kp L    &kp ENTER
+&kp Q             &kp W         &kp E               &kp R          &kp T                                                                &kp Y        &kp U  &kp I      &kp O    &kp P
+&kp A             &kp S         &lt_to_layer_0 3 D  &kp F          &kp G            &kp LS(LG(S))           &trans                      &kp H        &kp J  &lt 3 K    &kp L    &kp ENTER
 &mt LEFT_SHIFT Z  &kp X         &kp C               &kp V          &kp B            &trans                  &lt_to_layer_0 6 LC(SPACE)  &kp N        &kp M  &kp COMMA  &kp DOT  &kp BACKSPACE
 &kp LS(LCTRL)     &kp LEFT_ALT  &kp LEFT_WIN        &kp LC(SPACE)  &mt LCTRL SPACE  &mt LEFT_SHIFT TAB      &lt 2 BACKSPACE             &lt 1 ENTER                             &kp DEL
             >;
@@ -101,10 +102,10 @@
 
         FUNCTION {
             bindings = <
-&kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT                               &kp CARET          &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&kp QUESTION     &kp PIPE     &trans    &kp EQUAL   &kp UNDERSCORE  &trans         &trans     &kp DOUBLE_QUOTES  &kp COLON      &trans        &kp LEFT_BRACE        &kp RIGHT_BRACE
-&trans           &trans       &trans    &kp PLUS    &kp MINUS       &kp TILDE      &kp GRAVE  &kp SQT            &kp SEMICOLON  &trans        &kp LEFT_BRACKET      &kp RIGHT_BRACKET
-&trans           &trans       &trans    &trans      &trans          &trans         &trans     &trans                                                                &trans
+&kp EXCLAMATION  &kp AT_SIGN        &kp HASH  &kp DOLLAR  &kp PERCENT                               &kp CARET          &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+&kp QUESTION     &kp PIPE           &trans    &kp EQUAL   &kp UNDERSCORE  &trans         &trans     &kp DOUBLE_QUOTES  &kp COLON      &trans        &kp LEFT_BRACE        &kp RIGHT_BRACE
+&kp SLASH        &kp LC(BACKSLASH)  &trans    &kp PLUS    &kp MINUS       &kp TILDE      &kp GRAVE  &kp SQT            &kp SEMICOLON  &trans        &kp LEFT_BRACKET      &kp RIGHT_BRACKET
+&trans           &trans             &trans    &trans      &trans          &trans         &trans     &trans                                                                &trans
             >;
 
             sensor-bindings = <&encoder_scroll>;
@@ -123,10 +124,10 @@
 
         ARROW {
             bindings = <
-&kp ESCAPE  &trans  &trans  &trans  &kp LC(LS(L))                              &trans  &trans          &kp UP_ARROW    &trans           &trans
-&trans      &trans  &trans  &trans  &trans          &kp LC(PLUS)       &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LS(ENTER)
-&trans      &trans  &trans  &trans  &trans          &kp LC(MINUS)      &trans  &trans  &kp HOME        &trans          &kp END          &kp DELETE
-&trans      &trans  &trans  &trans  &kp LEFT_SHIFT  &kp LS(TAB)        &trans  &trans                                                   &trans
+&kp ESCAPE  &trans  &trans  &trans  &kp LC(LS(L))                                     &trans  &trans          &kp UP_ARROW    &trans           &trans
+&trans      &trans  &trans  &trans  &trans          &kp LC(PLUS)       &kp LC(PLUS)   &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LS(ENTER)
+&trans      &trans  &trans  &trans  &trans          &kp LC(MINUS)      &kp LC(MINUS)  &trans  &kp HOME        &trans          &kp END          &kp DELETE
+&trans      &trans  &trans  &trans  &kp LEFT_SHIFT  &kp LS(TAB)        &trans         &trans                                                   &trans
             >;
 
             sensor-bindings = <&encoder_scroll>;
